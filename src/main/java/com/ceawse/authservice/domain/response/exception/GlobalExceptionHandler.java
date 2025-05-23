@@ -1,8 +1,8 @@
 package com.ceawse.authservice.domain.response.exception;
 
-import com.oous.authorizationserver.domain.response.error.Data;
-import com.oous.authorizationserver.domain.response.error.ErrorResponse;
-import com.oous.authorizationserver.domain.response.exception.information.InformationException;
+import com.ceawse.authservice.domain.response.error.Data;
+import com.ceawse.authservice.domain.response.error.ErrorResponse;
+import com.ceawse.authservice.domain.response.exception.information.InformationException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

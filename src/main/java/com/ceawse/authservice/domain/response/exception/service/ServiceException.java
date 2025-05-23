@@ -1,6 +1,6 @@
 package com.ceawse.authservice.domain.response.exception.service;
 
-import com.oous.authorizationserver.domain.constant.Code;
+import com.ceawse.authservice.domain.constant.Code;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;

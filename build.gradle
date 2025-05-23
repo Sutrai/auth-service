@@ -32,6 +32,13 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.postgresql:postgresql:42.7.3'
+
+    implementation 'org.json:json:20231013'
+    implementation 'jakarta.mail:jakarta.mail-api:2.1.0'
+    implementation 'ru.dlabs71.library:d-email:latest.release'
+
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
 }
 
 tasks.named('test') {

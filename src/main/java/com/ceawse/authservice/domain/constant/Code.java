@@ -1,0 +1,16 @@
+package com.ceawse.authservice.domain.constant;
+
+public enum Code {
+
+    NOT_READABLE,
+    REQUEST_VALIDATION_ERROR,
+    INVALID_SCOPE,
+    USER_ALREADY_EXISTS,
+    UNAUTHORIZED,
+    INVALID_KEY_SPEC,
+    DEFAULT,
+    INVALID_CREDENTIALS,
+    SESSION_COOKIE_NOT_FOUND,
+    EMAIL_SENDING_EXCEPTION,
+    VALIDATE_ERROR
+}

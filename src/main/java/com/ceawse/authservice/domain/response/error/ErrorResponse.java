@@ -1,13 +1,13 @@
 package com.ceawse.authservice.domain.response.error;
 
-import com.oous.authorizationserver.domain.response.Response;
+import com.ceawse.authservice.domain.response.Response;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 
 @lombok.Data
 @Builder
 @AllArgsConstructor
-public class ErrorResponse implements Response{
+public class ErrorResponse implements Response {
 
     private Data data;
     private boolean informative;

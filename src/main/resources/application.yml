@@ -1,1 +1,32 @@
-spring.application.name=auth-service
+server:
+  port: 8082
+  error:
+    include-stacktrace: always
+
+spring:
+  application:
+    name: authorization-server
+
+  datasource:
+    driver: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 321griff
+
+e-mail:
+  host: smtp.mail.ru
+  port: 465
+  username: stepan.kashhak@bk.ru
+  password: Griffgriff321
+  protocol: smtp
+  properties:
+    mail.smtp.auth: true
+    mail.smtp.ssl.enable: true
+
+JWT_SECRET_KEY: awtewfwevfwerew532432vfsfvefefef
+EMAIL_TEMPLATE: /home/ceawse/IdeaProjects/auth-service/src/main/resources/email_template.html
+
+otp-store:
+  cookie-name: oous-sso-temporary-session
+  cookie-domain: localhost
+  cookie-max-age: 180
