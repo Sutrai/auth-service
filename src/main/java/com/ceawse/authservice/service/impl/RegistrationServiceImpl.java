@@ -33,13 +33,11 @@ import java.nio.file.Path;
 @RequiredArgsConstructor
 public class RegistrationServiceImpl implements RegistrationService {
 
-    @Value("${EMAIL_TEMPLATE}")
-    private String TEMPLATE_PATH;
+    private final DefaultUserService defaultUserService;
     private final RegistrationStore registrationStore;
     private final UserRepository userRepository;
     private final UserService userService;
     private final OTPStore otpStore;
-    private final Session mailSession;
 
     @Override
     public void register(RegistrationReq req, HttpServletResponse response) {
@@ -55,7 +53,7 @@ public class RegistrationServiceImpl implements RegistrationService {
             throw InformationException.builder("error.json.processing").build();
         }
 
-        sendEmail(req.getEmail(),
+        defaultUserService.sendEmail(req.getEmail(),
                 generationResult.opt(),
                 "Email verification code");
     }
@@ -77,26 +75,5 @@ public class RegistrationServiceImpl implements RegistrationService {
         }
 
         userService.saveAndActivate(req);
-    }
-
-    public void sendEmail(String to, String subject, String text) {
-        try {
-            String htmlContent = getEmailTemplate().replace("{otp_code}", subject);
-
-            Message message = new MimeMessage(mailSession);
-            message.setFrom(new InternetAddress(to));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-            message.setSubject(subject);
-            message.setContent(htmlContent, "text/html; charset=UTF-8");
-
-            Transport.send(message);
-        } catch (Exception e) {
-            System.out.println(e);
-            throw new EmailSendingException("email.sending.exception");
-        }
-    }
-
-    private String getEmailTemplate() throws IOException {
-        return Files.readString(Path.of(TEMPLATE_PATH));
     }
 }

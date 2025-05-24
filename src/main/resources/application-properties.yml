@@ -7,24 +7,33 @@ spring:
   application:
     name: authorization-server
 
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: sso
+        format_sql: true
+
   datasource:
     driver: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: 321griff
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
 
 e-mail:
   host: smtp.mail.ru
   port: 465
-  username: stepan.kashhak@bk.ru
-  password: Griffgriff321
+  username: ${MAIL_USERNAME}
+  password: ${MAIL_PASSWORD}
   protocol: smtp
   properties:
     mail.smtp.auth: true
     mail.smtp.ssl.enable: true
 
-JWT_SECRET_KEY: awtewfwevfwerew532432vfsfvefefef
-EMAIL_TEMPLATE: /home/ceawse/IdeaProjects/auth-service/src/main/resources/email_template.html
+JWT_SECRET_KEY: ${JWT_SECRET_KEY}
+EMAIL_TEMPLATE: ${EMAIL_TEMPLATE_PATH}
 
 otp-store:
   cookie-name: oous-sso-temporary-session
